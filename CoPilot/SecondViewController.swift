@@ -15,6 +15,7 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let locationManager:CLLocationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,11 +26,6 @@ class SecondViewController: UIViewController {
         locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
 
-        //Zoom to User Location
-        if let userLocation = locationManager.location?.coordinate {
-        let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
-        mapView.setRegion(viewRegion, animated: false)
-            
         //Set up Search Results table
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
@@ -46,11 +42,17 @@ class SecondViewController: UIViewController {
         definesPresentationContext = true
             
         locationSearchTable.mapView = mapView
-            
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let userLocation = locationManager.location?.coordinate {
+            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            mapView.setRegion(viewRegion, animated: false)
+        }
 
-
-}
+    }
 
 }
 
