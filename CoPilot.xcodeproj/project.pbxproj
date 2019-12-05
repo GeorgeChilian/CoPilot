@@ -16,6 +16,7 @@
 		7F05820D23990022006889CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F05820B23990022006889CC /* LaunchScreen.storyboard */; };
 		7F05821823990022006889CC /* CoPilotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F05821723990022006889CC /* CoPilotTests.swift */; };
 		7F05822323990022006889CC /* CoPilotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F05822223990022006889CC /* CoPilotUITests.swift */; };
+		7F0582332399106D006889CC /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0582322399106D006889CC /* LocationSearchTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		7F05821E23990022006889CC /* CoPilotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoPilotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F05822223990022006889CC /* CoPilotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoPilotUITests.swift; sourceTree = "<group>"; };
 		7F05822423990022006889CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F0582322399106D006889CC /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				7F05820223990021006889CC /* FirstViewController.swift */,
 				7F05820423990021006889CC /* SecondViewController.swift */,
 				7F05820623990021006889CC /* Main.storyboard */,
+				7F0582322399106D006889CC /* LocationSearchTable.swift */,
 				7F05820923990022006889CC /* Assets.xcassets */,
 				7F05820B23990022006889CC /* LaunchScreen.storyboard */,
 				7F05820E23990022006889CC /* Info.plist */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F05820523990021006889CC /* SecondViewController.swift in Sources */,
+				7F0582332399106D006889CC /* LocationSearchTable.swift in Sources */,
 				7F05820323990021006889CC /* FirstViewController.swift in Sources */,
 				7F0581FF23990021006889CC /* AppDelegate.swift in Sources */,
 				7F05820123990021006889CC /* SceneDelegate.swift in Sources */,
@@ -445,6 +449,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Britannia-Superfine-LTD.CoPilot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -463,6 +468,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Britannia-Superfine-LTD.CoPilot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
