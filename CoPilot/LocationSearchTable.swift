@@ -10,8 +10,37 @@ import UIKit
 import MapKit
 
 class LocationSearchTable : UITableViewController {
+    
+    var handleMapSearchDelegate:HandleMapSearch? = nil
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
+    
+
+    //Adding Address To Search Table Results
+    func parseAddress(selectedItem:MKPlacemark) -> String {
+        // Put a space between address number and street
+        let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
+        // Put a comma between street and city/state
+        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
+        // Put a space between City and Country or County
+        let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
+        let addressLine = String(
+            format:"%@%@%@%@%@%@%@",
+            // Street Number
+            selectedItem.subThoroughfare ?? "",
+            firstSpace,
+            // Street Name
+            selectedItem.thoroughfare ?? "",
+            comma,
+            // City
+            selectedItem.locality ?? "",
+            secondSpace,
+            // County
+            selectedItem.administrativeArea ?? ""
+        )
+        return addressLine
+    }
+
 }
 
 extension LocationSearchTable : UISearchResultsUpdating {
@@ -43,12 +72,25 @@ extension LocationSearchTable {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell"){
+        
+        //Show Location In Table when searching
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        {
+            let selectedItem = matchingItems[indexPath.row].placemark
+            cell.textLabel?.text = selectedItem.name
+            cell.detailTextLabel?.text = parseAddress(selectedItem: selectedItem)
             return cell
         } else {
             let cell = UITableViewCell()
             return cell
         }
     }
+}
 
+extension LocationSearchTable {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedItem = matchingItems[indexPath.row].placemark
+        handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
+        dismiss(animated: true, completion: nil)
+    }
 }
