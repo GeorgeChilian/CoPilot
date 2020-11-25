@@ -20,8 +20,8 @@ CoPilot focuses on the streamlining, fastforawrding and organising drivers in a 
 A special MapKit using Apple Maps is used in order to make sure the routes are as helpful as possible. 
 
 # Release Date
-22nd May 2020.
+2021.
 
-# First beta available February 2020
+# First beta available February 2021
 
-Copyright © 2019 George Chilian. All rights reserved.
+Copyright © 2020 George Chilian. All rights reserved.
